@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  gateway:
+    build: .
+    container_name: aegis-ai-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: aegis-ai-redis
+    ports:
+      - "6379:6379"
+
+  locust:
+    image: locustio/locust:latest
+    container_name: aegis-ai-locust
+    volumes:
+      - .:/mnt/locust
+    working_dir: /mnt/locust
+    command: -f benchmarks/assess_traffic.py --host http://gateway:8000
+    depends_on:
+      - gateway

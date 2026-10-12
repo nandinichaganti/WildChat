@@ -1,0 +1,14 @@
+{
+  "analytics-team": {
+    "allowed_models": ["gpt-4o-mini", "claude-3-haiku"],
+    "daily_quota": 500000,
+    "request_limit_per_minute": 120,
+    "priority": "standard"
+  },
+  "core-banking-service": {
+    "allowed_models": ["gpt-4o-mini"],
+    "daily_quota": 200000,
+    "request_limit_per_minute": 60,
+    "priority": "high"
+  }
+}
