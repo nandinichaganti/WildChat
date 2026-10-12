@@ -1,0 +1,22 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local Python environment folders created by tooling
+Include/
+Lib/
+Scripts/
+share/
+
+# Common local runtime artifacts
+*.log
+
+# Generated sample data
+wildchat_traffic_sample.json
